@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Server</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+    <h1 class="mt-5">Acceso denegado</h1>
+    <hr>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"></script>
+
+    <script>
+        const socket = io('http://localhost:8080');
+        
+        socket.on('connect', () => {
+            console.log('Conectado');
+        });
+
+        socket.on('current-bands', (bands) => {
+            console.log(bands);
+        });
+
+    </script>
+
+</body>
+
+</html>
